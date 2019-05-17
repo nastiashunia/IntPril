@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Lab2.Models;
 using Microsoft.AspNetCore.Identity;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Lab2.Controllers
 {
@@ -77,6 +80,35 @@ namespace Lab2.Controllers
                     error = ModelState.Values.SelectMany(e => e.Errors.Select(er => er.ErrorMessage))
                 };
                 return Ok(errorMsg);
+            }
+        }
+
+
+
+        [Route("api/Account/GetRole")]
+        public async Task<IActionResult> GetUserRole()
+        {
+            try
+            {
+                IList<string> x;
+
+                string role;
+
+                User usera = await GetCurrentUserAsync();
+                if (usera != null)
+                {
+                    x = await _userManager.GetRolesAsync(usera);
+
+                    role = x.FirstOrDefault();
+                }
+                else
+                    role = "";
+                return Ok(role);
+            }
+            catch (Exception ex)
+            {
+                Log.Write(ex);
+                return BadRequest(ex);
             }
         }
 

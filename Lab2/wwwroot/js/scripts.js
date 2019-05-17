@@ -1,8 +1,7 @@
 ﻿const api = "api/products/";
 const uri = "api/orders/";
 const url = "api/orderStrings/";
-
-
+var Role="";
 var items = null;
 var order;
 var x = "";
@@ -46,7 +45,7 @@ function loadProduct() {
     request.onload = function () {
         var items = null;
         items = JSON.parse(request.responseText);
-        
+        GetRole();
         
         for (i in items) {
             y += '<div class="col-4">';
@@ -57,7 +56,9 @@ function loadProduct() {
             y += "<h4> " + " Цена " + items[i].costs + "</h4>";
             y += "<button type='button' class='btn btn-sm btn-outline-secondary' onclick='idorder(" + items[i].productId+", "+ items[i].costs +");'>Добавить в корзину</button>";
             y += "<h4> " + "  " + "</h4>";
+            (Role === "admin") {
             y += "<button type='button' class='btn btn-sm btn-outline-secondary' onclick='deleteproduct(" + items[i].productId + ");'>Удалить</button>";
+            }
             y += '</div>';
 
         }
@@ -65,6 +66,9 @@ function loadProduct() {
     };
     request.send();
 }
+
+
+
 //функция для загрузки строки заказа
 function getStrings(id) {
     var i;
@@ -305,5 +309,16 @@ function logOff() {
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     request.send();
 
- }
+}
+
+function GetRole() {
+    var request = new XMLHttpRequest();
+    request.open("GET", "api/Account/GetRole", false);
+    request.onload = function () {
+
+        Role = JSON.parse(request.responseText);
+      
+    };
+    request.send();
+}
 

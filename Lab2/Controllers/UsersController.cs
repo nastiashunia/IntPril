@@ -41,6 +41,10 @@ namespace Lab2.Controllers
             return Ok(user);
         }
 
+
+
+
+
         // POST api/<controller>
         [HttpPost]
       public async Task<IActionResult> CreateUser([FromBody]User user)
