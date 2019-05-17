@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Register</title>
+    <style>
+        .msg-error {
+            color: red;
+        }
+
+        button {
+            margin-top: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sl-slide.css">
+
+    <title>Bootstrap style</title>
+
+    <!-- Bootstrap core CSS -->
+    <!--<link rel="stylesheet" href="/lib2/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+    <a class="p-2 text-dark" href="Index.html">Основная страница</a>
+    <h2>Регистрация нового пользователя</h2>
+    <!--
+          <form>
+         <label for="email">Email: </label>
+         <br />
+         <input type="text" id="email" name="email">
+         <br />
+         <label for="password">Пароль: </label>
+         <br />
+         <input type="password" id="password" name="password">
+         <br />
+         <label for="passwordConfirm">Подтверждение пароля: </label>
+         <br />
+         <input type="password" id="passwordConfirm" name="passwordConfirm">
+     </form>
+    -->
+
+
+
+    <div class="msg-error">
+        <div id="msg"></div>
+        <ul id="formError"></ul>
+    </div>
+
+        <form class="needs-validation" id="regForm" action="javascript:void(0);" novalidate>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                <small id="emailHelp" class="form-text text-muted">Введите адрес электронной почты</small>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+            </div>
+            <div class="form-group">
+                <label for="passwordConfirm">Подтверждение пароля</label>
+                <input type="password" class="form-control" id="passwordConfirm" placeholder="Password" name="passwordConfirm">
+            </div>
+            <button id="registerBtn">Регистрация</button>
+        </form>
+
+
+
+        <!--  <button id="registerBtn">Регистрация</button>-->
+
+        <script src="js/register.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
